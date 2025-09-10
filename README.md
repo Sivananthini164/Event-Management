@@ -28,25 +28,29 @@ It demonstrates full-stack development with REST API integration, validation, an
 ## ⚙️ Setup & Installation
 
 ### 1. Clone the repository
-git clone https://github.com/your-username/event-management.git
+git clone https://github.com/Sivananthini164/Event-Management.git
 cd Event-Management
 
 02.  Backend Setup
+  
 cd backend
+
 npm install
 
 Create a .env file inside backend/:
 
 PORT=5000
-MONGO_URI=MONGO_URI = mongodb+srv://Gamage_Recruiters:1234@gamagerecruiters.9gtre0a.mongodb.net/?retryWrites=true&w=majority&appName=GamageRecruiters
+
+MONGO_URI=mongodb+srv://Gamage_Recruiters:1234@gamagerecruiters.9gtre0a.mongodb.net/?retryWrites=true&w=majority&appName=GamageRecruiters
 
 
 Start backend:
-
 npm run dev
 
 3. Frontend Setup
+   
 cd ../client
+
 npm install
 
 
@@ -56,65 +60,74 @@ REACT_APP_API_URL=http://localhost:5000/api
 
 
 Start frontend:
-
 npm start
 
 4. Access Application
-
 Frontend: http://localhost:3000
-
 Backend API: http://localhost:5000/api/events
 
 📡 API Endpoints
+
 Method	Endpoint	Description	Request Body Example
+
 GET	/api/events	Get all events (with ?q or ?date filters)	–
+
 GET	/api/events/:id	Get a single event by ID	–
+
 POST	/api/events	Create a new event	{ "title": "Annual Meetup", "date": "2025-09-15", "Venue": "Colombo" , "capacity": 100, "status": "draft" }
+
 PUT	/api/events/:id	Update an existing event	Same as POST body
+
 DELETE	/api/events/:id	Delete an event	–
+
 📸 Screenshots
-Event List Page
+### Event List Page
+![Event List](screenshots/event-list.png)
 
-Create Event Page
+### Create Event Page
+![Create Event](screenshots/created-event.png)
 
-Edit Event Page
+### Edit Event Page
+![Edit Event](screenshots/edit-event.png)
+
+### Delete Event Page
+![Delete Event](screenshots/delete-event.png)
+
+### Updated Event Page
+![Updated Event](screenshots/updated-event.png)
+
+### Search Events
+![Search](screenshots/searching.png)
+
+### Validation Checked
+![Validation](screenshots/validation-checked.png)
+
+### Database
+![Database](screenshots/database.png)
 
 
 
 🧩 Challenges Faced & Solutions
-
 MongoDB Connection Issue
-
 Problem: .env variable mismatch (MONGO_URL vs MONGO_URI).
-
-Solution: Unified naming across .env and server.js.
+Solved with Unified naming across .env and server.js.
 
 React Infinite Render (Maximum update depth exceeded)
-
 Problem: useEffect caused infinite loop when setting form state.
-
-Solution: Added condition Object.keys(initialData).length > 0 before updating state.
+Added condition Object.keys(initialData).length > 0 before updating state.
 
 Controlled vs Uncontrolled Input Warning
-
 Problem: Some inputs switched between undefined and string.
-
-Solution: Provided default empty string "" for all form fields.
+Provided default empty string "" for all form fields.
 
 Field Mismatch (Venue vs Location)
-
 Problem: Frontend used venue, backend used location.
-
-Solution: Renamed consistently to location in DB, kept "Venue" only as UI label.
+Renamed consistently to location in DB, kept "Venue" only as UI label.
 
 📌 Future Improvements
-
 User authentication (login, register).
-
 Event RSVP/registration system.
-
 Deployment to Vercel (frontend) and Render/Heroku (backend).
 
 👨‍💻 Author
-
 Developed by Sivananthini Ravichandran as part of the Software Engineering Assignment.
